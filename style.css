@@ -7,6 +7,8 @@
   --text-soft: #d3d7e5;
   --muted: #78819f;
   --border: rgba(108, 121, 167, 0.34);
+  --purple: #aa6cff;
+  --blue: #5c9fff;
 }
 
 * {
@@ -74,13 +76,12 @@ a {
   border-radius: 10px;
 
   background: rgba(42, 29, 86, 0.4);
-  color: #b06cff;
+  color: #a56aff;
 
   font-size: 17px;
   font-weight: 700;
 }
 
-/* MAIN TITLE — intentionally bright and high contrast */
 h1 {
   margin: 0;
 
@@ -90,10 +91,24 @@ h1 {
   line-height: 0.92;
   letter-spacing: -0.065em;
 
-  color: #9b7cff;
-  text-shadow:
-    0 0 18px rgba(155, 124, 255, 0.18),
-    0 0 42px rgba(92, 159, 255, 0.10);
+  /* Framer-style purple → blue title gradient */
+  background-image: linear-gradient(
+    90deg,
+    #b46cff 0%,
+    #9a78ff 34%,
+    #817fff 58%,
+    #5da4ff 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  filter: drop-shadow(0 0 18px rgba(135, 105, 255, 0.12));
 }
 
 .tagline {
@@ -221,7 +236,9 @@ h1 {
 
 .button-primary {
   min-width: 170px;
+
   border-color: #8168ff;
+
   background:
     linear-gradient(
       180deg,
@@ -391,6 +408,7 @@ h1 {
   transform: translate(-50%, 0);
 }
 
+/* Tablet */
 @media (max-width: 900px) {
   .content {
     width: min(790px, 94vw);
@@ -430,6 +448,7 @@ h1 {
   }
 }
 
+/* Phone */
 @media (max-width: 560px) {
   .hero {
     min-height: 100svh;
